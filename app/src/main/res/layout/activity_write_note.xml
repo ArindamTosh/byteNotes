@@ -5,48 +5,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFEAE2"
-    tools:context=".writeNote">
+    tools:context=".WriteNote">
 
-    <TextView
-        android:id="@+id/header2"
+    <ImageView
+        android:id="@+id/backButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back"
+        android:onClick="back"/>
+
+    <TextView
+        android:id="@+id/header4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="New Note"
         android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backButton3"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl2"
-        android:layout_width="wrap_content"
-        android:layout_height="588dp"
-        android:layout_marginEnd="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header4"
+        app:srcCompat="@drawable/rounded_rectangle" />
 
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            style="@style/Base.Widget.MaterialComponents.TextInputEditText"
-            android:layout_width="360dp"
-            android:layout_height="557dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="29dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header4">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="900dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <EditText
+                    android:id="@+id/note_data"
+                    style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="800dp"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="What's on your mind ?..."
+                    android:inputType="textMultiLine"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/saveFab2"
+        android:onClick="back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="37dp"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:scaleType="center"
+        app:backgroundTint="@color/colorDark"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/yes" />
 </androidx.constraintlayout.widget.ConstraintLayout>
