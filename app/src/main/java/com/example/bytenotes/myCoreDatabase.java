@@ -12,11 +12,12 @@ public class myCoreDatabase extends SQLiteOpenHelper {
 
     SQLiteDatabase myDb;
     Context ctx;
+    ArrayList[] myArray;
 
 
     public myCoreDatabase(Context context) {
         super(context, "mynotes.db", null, 1);
-        ctx=context;
+        ctx = context;
     }
 
     @Override
@@ -31,36 +32,77 @@ public class myCoreDatabase extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
 
     }
-public String getAll(){
-        myDb= getReadableDatabase();
-        Cursor cr=myDb.rawQuery("Select * from mynotes",null);
-        StringBuilder str=new StringBuilder();
-        while (cr.moveToNext()){
-            String s1= cr.getString(1);
-            String s2= cr.getString(1);
-            str.append(s1+"               "+s2+"\n");
+
+    public String getAll() {
+        myDb = getReadableDatabase();
+        Cursor cr = myDb.rawQuery("Select * from mynotes", null);
+        StringBuilder str = new StringBuilder();
+        while (cr.moveToNext()) {
+            String s1 = cr.getString(1);
+            String s2 = cr.getString(1);
+            str.append(s1 + "               " + s2 + "\n");
 
 
             ArrayList<String> notesArray = new ArrayList<String>();
-            while (cr.moveToNext()){
-                String s= cr.getString(1);
+            while (cr.moveToNext()) {
+                String s = cr.getString(1);
                 notesArray.add(s);
-                Log.i("Data:","Added");
+                //  Log.i("Data:","Added");
 
             }
 
             for (int i = 0; i < notesArray.size(); i++) {
-                System.out.println(notesArray.get(i));
+                //System.out.println(notesArray.get(i));
             }
 
-            Log.i("Strings:-",notesArray.toString());
-           // Toast.makeText(ctx,str.toString(),Toast.LENGTH_SHORT).show();
+           // Log.i("Strings:-", notesArray.toString());
+
+            // Toast.makeText(ctx,str.toString(),Toast.LENGTH_SHORT).show();
 
 
+        }
 
+        return null;
     }
 
-    return null;
-}
+    public ArrayList<String> getMyArray() {
+        myDb = getReadableDatabase();
+        Cursor cr = myDb.rawQuery("Select * from mynotes", null);
+        StringBuilder str = new StringBuilder();
+        while (cr.moveToNext()) {
+            String s1 = cr.getString(1);
+            String s2 = cr.getString(1);
+            str.append(s1 + "               " + s2 + "\n");
 
+
+            ArrayList<String> notesArray = new ArrayList<String>();
+            while (cr.moveToNext()) {
+                String s = cr.getString(1);
+                notesArray.add(s);
+                //  Log.i("Data:","Added");
+
+            }
+
+            for (int i = 0; i < notesArray.size(); i++) {
+
+               // System.out.println(notesArray.get(i));
+            }
+
+            //Log.i("Strings:-", notesArray.toString());
+            // Toast.makeText(ctx,str.toString(),Toast.LENGTH_SHORT).show();
+
+
+        }
+        return null;
+    }
+    Cursor getAllData(){
+        String query ="Select * from mynotes" ;
+        SQLiteDatabase db= this.getReadableDatabase();
+        Cursor cursor=null;
+
+        if (db!=null){
+           cursor= db.rawQuery("Select * from mynotes", null);
+        }
+        return cursor;
+    }
 }

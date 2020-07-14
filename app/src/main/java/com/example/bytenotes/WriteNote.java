@@ -30,6 +30,7 @@ public class WriteNote extends AppCompatActivity {
             Intent i1 = new Intent(this, MainActivity.class);
             startActivity(i1);
             kill_activity();
+
         }else{
 
 
