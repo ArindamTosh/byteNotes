@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFEAE2"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true" >
     tools:context=".WriteNote">
 
     <ImageView
-        android:id="@+id/backButton3"
+        android:id="@+id/backButtonv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -24,11 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="New Note"
+        android:text="Note"
         android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/backButton3"
+        app:layout_constraintStart_toEndOf="@+id/backButtonv"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -63,7 +65,7 @@
                 android:padding="2dp">
 
                 <EditText
-                    android:id="@+id/note_data"
+                    android:id="@+id/note_viewdata"
                     style="@style/Base.Widget.MaterialComponents.TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="800dp"
@@ -72,26 +74,32 @@
                     android:hint="What's on your mind ?..."
                     android:inputType="textMultiLine"
                     android:textSize="18sp" />
+
             </LinearLayout>
         </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/saveFab2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="37dp"
-        android:clickable="true"
-        android:elevation="20dp"
-        app:fabCustomSize="59dp"
-        app:maxImageSize="35dp"
-
-        android:onClick="back"
-        android:scaleType="center"
-        app:backgroundTint="@color/colorDark"
-        app:fabSize="normal"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_check_24" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="40dp"
+            android:clickable="true"
+            app:fabCustomSize="59dp"
+            app:maxImageSize="28dp"
+            app:backgroundTint="@color/colorDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/save" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

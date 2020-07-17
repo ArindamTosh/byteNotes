@@ -1,10 +1,12 @@
 package com.example.bytenotes;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,15 +16,36 @@ public class myCoreDatabase extends SQLiteOpenHelper {
     Context ctx;
     ArrayList[] myArray;
 
+    private Context context;
+    private static final String DATABASE_NAME = "mynotes1.db";
+    private static final int DATABASE_VERSION = 2;
 
-    public myCoreDatabase(Context context) {
-        super(context, "mynotes.db", null, 1);
-        ctx = context;
+    private static final String TABLE_NAME = "mynotes";
+    private static final String COLUMN_ID = "_id";
+    private static final String COLUMN_TITLE = "note";
+    private static final String COLUMN_AUTHOR = "book_author";
+    private static final String COLUMN_PAGES = "book_pages";
+
+    private static final String Noter="note";
+
+    myCoreDatabase(Context context) {
+        super(context,"mynotes1.db", null, 1);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table mynotes(n_id integer primary key autoincrement, note text )");
+        String query = "CREATE TABLE " + TABLE_NAME +
+                " (" + COLUMN_ID + "  INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_TITLE + " TEXT, " +
+                COLUMN_AUTHOR + " TEXT, " +
+                COLUMN_PAGES + " INTEGER);";
+        sqLiteDatabase.execSQL(query);
+
+        //sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS mynotes( _id integer primary key autoincrement, note text );");
+
+        //sqLiteDatabase.execSQL("create table mynotes( n_id integer primary key autoincrement, note text )");
+
 
     }
 
@@ -96,13 +119,32 @@ public class myCoreDatabase extends SQLiteOpenHelper {
         return null;
     }
     Cursor getAllData(){
-        String query ="Select * from mynotes" ;
         SQLiteDatabase db= this.getReadableDatabase();
         Cursor cursor=null;
 
         if (db!=null){
-           cursor= db.rawQuery("Select * from mynotes", null);
+            cursor= db.rawQuery("Select * from mynotes", null);
         }
         return cursor;
+    }
+
+    void updateData(String row_id,String note){
+
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put("_id",row_id);
+        cv.put("note", note);
+
+        long result = db.update("mynotes", cv, "_id=?", new String[]{row_id});
+        System.out.println( "result"+result);
+
+       if (result==-1){
+           Toast.makeText(ctx,"error data",Toast.LENGTH_SHORT).show();
+       }else{
+           System.out.println("Successfully Updated"+note);
+          // Toast.makeText(ctx,"Successfully updated",Toast.LENGTH_SHORT).show();
+
+       }
     }
 }

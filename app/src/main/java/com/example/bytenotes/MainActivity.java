@@ -1,5 +1,6 @@
 package com.example.bytenotes;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     myRecyclerView rv;
     myCoreDatabase mcd;
-    ArrayList <String> Notes;
+    ArrayList <String> Notes,book_id;
     RecyclerView recyclerView;
 
 
@@ -31,15 +32,24 @@ public class MainActivity extends AppCompatActivity {
 
         mcd = new myCoreDatabase(this);
         Notes = new ArrayList<>();
+        book_id=new ArrayList<>();
 
         storeDataInArray();
 
-        rv=new myRecyclerView(this,Notes);
+        rv=new myRecyclerView(MainActivity.this,this,book_id,Notes);
         rv.getItemCount();
         recyclerView.setAdapter(rv);
         GridLayoutManager manager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
 
     }
 
@@ -51,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
         }else{
             while (c1.moveToNext()){
-
+                     book_id.add(c1.getString(0));
                      Notes.add(c1.getString(1));
 
     }
-            System.out.println(Notes);
+           // System.out.println(Notes);
 }
     }
    /* void readData(){

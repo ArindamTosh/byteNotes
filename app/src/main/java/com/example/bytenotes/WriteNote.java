@@ -62,4 +62,12 @@ public class WriteNote extends AppCompatActivity {
     {
         finish();
     }
+
+
+    public void updateData(View view) {
+    }
+
+    public void update(View view) {
+
+    }
 }

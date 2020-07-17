@@ -36,11 +36,11 @@
         android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="19dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toStartOf="@+id/bookmark"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search" />
+        app:srcCompat="@drawable/ic_baseline_search_24" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -70,13 +70,17 @@
         android:layout_marginBottom="37dp"
         android:clickable="true"
         android:elevation="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom"
+        app:fabCustomSize="59dp"
+        app:maxImageSize="35dp"
 
         android:onClick="writeNote"
         android:scaleType="center"
         app:backgroundTint="@color/colorDark"
-        app:fabSize="normal"
+        app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/fab_add" />
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
