@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import petrov.kristiyan.colorpicker.ColorPicker;
+
 public class WriteNote extends AppCompatActivity {
 
     TextView note;
@@ -68,6 +70,24 @@ public class WriteNote extends AppCompatActivity {
     }
 
     public void update(View view) {
+
+    }
+
+    public void colorChooser(View view) {
+        ColorPicker colorPicker = new ColorPicker(this);
+        colorPicker.setRoundColorButton(true);
+        colorPicker.show();
+        colorPicker.setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
+            @Override
+            public void onChooseColor(int position,int color) {
+                // put code
+            }
+
+            @Override
+            public void onCancel(){
+                // put code
+            }
+        });
 
     }
 }

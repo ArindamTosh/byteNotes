@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,7 +46,8 @@ public class myRecyclerView extends RecyclerView.Adapter<myRecyclerView.MyOwnHol
 
 
     holder.t1.setText(String.valueOf(my_Notes.get(position)));
-    holder.t2.setText(String.valueOf(book_id.get(position)));
+    //holder.t2.setText(String.valueOf(book_id.get(position)));
+    //holder.cardView.setCardBackgroundColor(color);
    // String i=String.valueOf(book_id.get(position));
 
 
@@ -82,6 +84,7 @@ public class myRecyclerView extends RecyclerView.Adapter<myRecyclerView.MyOwnHol
 
         TextView t1,viewNote,t2;
         ConstraintLayout mainLayout;
+        CardView cardView;
 
         public MyOwnHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,6 +92,8 @@ public class myRecyclerView extends RecyclerView.Adapter<myRecyclerView.MyOwnHol
 
             t1=itemView.findViewById(R.id.noteView);
             t2=itemView.findViewById(R.id.textViewid);
+            cardView=itemView.findViewById(R.id.cardView);
+            //cardView.setCardBackgroundColor(color);
             viewNote=itemView.findViewById(R.id.note_viewdata);
             mainLayout=itemView.findViewById(R.id.mainLayout);
         }
