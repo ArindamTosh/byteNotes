@@ -1,4 +1,4 @@
-package com.example.bytenotes;
+package com.toshinc.bytenotes;
 
 import org.junit.Test;
 

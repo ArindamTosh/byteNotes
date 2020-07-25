@@ -1,4 +1,4 @@
-package com.example.bytenotes;
+package com.toshinc.bytenotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import petrov.kristiyan.colorpicker.ColorPicker;
 
@@ -81,6 +82,9 @@ public class WriteNote extends AppCompatActivity {
             @Override
             public void onChooseColor(int position,int color) {
                 // put code
+
+                    Toast.makeText(WriteNote.this, "Upcoming Feature", Toast.LENGTH_LONG).show();
+
             }
 
             @Override

@@ -1,4 +1,4 @@
-package com.example.bytenotes;
+package com.toshinc.bytenotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +29,7 @@ public class viewNote extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_note);
-        Toast.makeText(this,"ViewNote Activity Started",Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this,"ViewNote Activity Started",Toast.LENGTH_SHORT).show();
         BackButton = (ImageView) findViewById(R.id.backButtonv);
         save_small=(ImageView)findViewById(R.id.share);
         delete_small=(ImageView)findViewById(R.id.Delete_small);
@@ -155,7 +155,7 @@ public class viewNote extends AppCompatActivity {
 
 
               }else {
-                  Toast.makeText(this,"No Data",Toast.LENGTH_SHORT).show();
+                  Toast.makeText(this,"No Notes. Please add some...",Toast.LENGTH_SHORT).show();
               }
 
 

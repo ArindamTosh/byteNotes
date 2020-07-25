@@ -1,20 +1,14 @@
-package com.example.bytenotes;
+package com.toshinc.bytenotes;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
