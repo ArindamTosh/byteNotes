@@ -44,7 +44,7 @@ public class myRecyclerView extends RecyclerView.Adapter<myRecyclerView.MyOwnHol
 
 
     holder.t1.setText(String.valueOf(my_Notes.get(position)));
-    //holder.t2.setText(String.valueOf(book_id.get(position)));
+    holder.t2.setText(String.valueOf(book_id.get(position)));
     //holder.cardView.setCardBackgroundColor(color);
    // String i=String.valueOf(book_id.get(position));
 
@@ -89,7 +89,7 @@ public class myRecyclerView extends RecyclerView.Adapter<myRecyclerView.MyOwnHol
 
 
             t1=itemView.findViewById(R.id.noteView);
-            t2=itemView.findViewById(R.id.textViewid);
+            t2=itemView.findViewById(R.id.date);
             cardView=itemView.findViewById(R.id.cardView);
             //cardView.setCardBackgroundColor(color);
             viewNote=itemView.findViewById(R.id.note_viewdata);

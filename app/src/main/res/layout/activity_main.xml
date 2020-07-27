@@ -45,10 +45,11 @@
         app:srcCompat="@drawable/ic_baseline_search_24" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="590dp"
-        android:padding="10dp"
         android:layout_marginTop="8dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
 
@@ -60,6 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -67,21 +69,35 @@
         style="c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="37dp"
         android:clickable="true"
         android:elevation="10dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="bottom"
-        app:fabCustomSize="59dp"
-        app:maxImageSize="35dp"
-
         android:onClick="writeNote"
         android:scaleType="center"
+
         app:backgroundTint="@color/colorDark"
+        app:fabCustomSize="59dp"
         app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="35dp"
         app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <TextView
+        android:id="@+id/addNote"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="55dp"
+        android:text="Add a Note"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     myCoreDatabase mcd;
     ArrayList<String> Notes, book_id;
     RecyclerView recyclerView;
+    TextView addNote;
 
 
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.myRecycler);
+        addNote=findViewById(R.id.addNote);
 
         mcd = new myCoreDatabase(this);
         Notes = new ArrayList<>();
@@ -39,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(rv);
         GridLayoutManager manager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
+        indicate();
+    }
+
+    void indicate() {
+        Cursor c1 = mcd.getAllData();
+        if (c1.getCount() <= 2) {
+            addNote.setText("Add a Note"); //   Toast.makeText(this, "No data", Toast.LENGTH_LONG).show();
+        }else{
+            addNote.setText("");
+        }
     }
 
     @Override
@@ -54,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor c1 = mcd.getAllData();
         if (c1.getCount() == 0) {
-            Toast.makeText(this, "No data", Toast.LENGTH_LONG).show();
+         //   Toast.makeText(this, "No data", Toast.LENGTH_LONG).show();
 
         } else {
             while (c1.moveToNext()) {
@@ -79,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent i1 = new Intent(this, WriteNote.class);
         startActivity(i1);
+        finish();
     }
 
     public void upcoming(View view) {
